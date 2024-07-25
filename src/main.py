@@ -9,6 +9,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 PREFIX = ";"
 
+
 class DiscordClient(discord.Client):
     async def on_read(self):
         print(f"Logged in as {self.user}!")
@@ -16,7 +17,7 @@ class DiscordClient(discord.Client):
     async def on_message(self, message):
         print(f"Message from {message.author}: {message.content}")
 
-        #ew code python ass
+        # ew code python ass
         if not message.content or message.content[0] != PREFIX: return
 
         message_array = message.content[1:]
@@ -30,8 +31,6 @@ class DiscordClient(discord.Client):
                 array = message.content.split()
                 array.pop(0)
                 await message.reply(' '.join(array))
-
-            case default: await message.reply("not a valid command")
 
 
 intents = discord.Intents.default()
